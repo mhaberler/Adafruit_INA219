@@ -165,7 +165,7 @@ class Adafruit_INA219 {
 public:
   Adafruit_INA219(uint8_t addr = INA219_ADDRESS);
   ~Adafruit_INA219();
-  bool begin(TwoWire *theWire = &Wire);
+  bool begin(TwoWire *theWire = &Wire, bool addr_detect = true);
   void setCalibration_32V_2A();
   void setCalibration_32V_1A();
   void setCalibration_16V_400mA();

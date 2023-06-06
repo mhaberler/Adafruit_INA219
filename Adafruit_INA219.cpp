@@ -50,12 +50,12 @@ Adafruit_INA219::~Adafruit_INA219() { delete i2c_dev; }
  *  @param theWire the TwoWire object to use
  *  @return true: success false: Failed to start I2C
  */
-bool Adafruit_INA219::begin(TwoWire *theWire) {
+bool Adafruit_INA219::begin(TwoWire *theWire, bool addr_detect) {
   if (!i2c_dev) {
     i2c_dev = new Adafruit_I2CDevice(ina219_i2caddr, theWire);
   }
 
-  if (!i2c_dev->begin()) {
+  if (!i2c_dev->begin(addr_detect)) {
     return false;
   }
   init();
